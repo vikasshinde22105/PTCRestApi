@@ -41,12 +41,12 @@ public class UserRegistrationInfo implements java.io.Serializable {
 	private Date lastLoggedOn;
 	private Integer lastUpdatedBy;
 	private Date lastUpdatedOn;
-	private Set tasksForAssignedBy = new HashSet(0);
-	private Set tasksForToUserId = new HashSet(0);
-	private Set parentInfos = new HashSet(0);
-	private Set userRoles = new HashSet(0);
-	private Set studentPersonalInfos = new HashSet(0);
-	private Set teacherStaffInfos = new HashSet(0);
+	private Set<Task> tasksForAssignedBy = new HashSet<Task>(0);
+	private Set<Task> tasksForToUserId = new HashSet<Task>(0);
+	private Set<ParentInfo> parentInfos = new HashSet<ParentInfo>(0);
+	private Set<UserRole> userRoles = new HashSet<UserRole>(0);
+	private Set<StudentPersonalInfo> studentPersonalInfos = new HashSet<StudentPersonalInfo>(0);
+	private Set<TeacherStaffInfo> teacherStaffInfos = new HashSet<TeacherStaffInfo>(0);
 
 	public UserRegistrationInfo() {
 	}
@@ -252,56 +252,56 @@ public class UserRegistrationInfo implements java.io.Serializable {
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "userRegistrationInfoByAssignedBy")
-	public Set getTasksForAssignedBy() {
+	public Set<Task> getTasksForAssignedBy() {
 		return this.tasksForAssignedBy;
 	}
 
-	public void setTasksForAssignedBy(Set tasksForAssignedBy) {
+	public void setTasksForAssignedBy(Set<Task> tasksForAssignedBy) {
 		this.tasksForAssignedBy = tasksForAssignedBy;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "userRegistrationInfoByToUserId")
-	public Set getTasksForToUserId() {
+	public Set<Task> getTasksForToUserId() {
 		return this.tasksForToUserId;
 	}
 
-	public void setTasksForToUserId(Set tasksForToUserId) {
+	public void setTasksForToUserId(Set<Task> tasksForToUserId) {
 		this.tasksForToUserId = tasksForToUserId;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "userRegistrationInfo")
-	public Set getParentInfos() {
+	public Set<ParentInfo> getParentInfos() {
 		return this.parentInfos;
 	}
 
-	public void setParentInfos(Set parentInfos) {
+	public void setParentInfos(Set<ParentInfo> parentInfos) {
 		this.parentInfos = parentInfos;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "userRegistrationInfo")
-	public Set getUserRoles() {
+	public Set<UserRole> getUserRoles() {
 		return this.userRoles;
 	}
 
-	public void setUserRoles(Set userRoles) {
+	public void setUserRoles(Set<UserRole> userRoles) {
 		this.userRoles = userRoles;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "userRegistrationInfo")
-	public Set getStudentPersonalInfos() {
+	public Set<StudentPersonalInfo> getStudentPersonalInfos() {
 		return this.studentPersonalInfos;
 	}
 
-	public void setStudentPersonalInfos(Set studentPersonalInfos) {
+	public void setStudentPersonalInfos(Set<StudentPersonalInfo> studentPersonalInfos) {
 		this.studentPersonalInfos = studentPersonalInfos;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "userRegistrationInfo")
-	public Set getTeacherStaffInfos() {
+	public Set<TeacherStaffInfo> getTeacherStaffInfos() {
 		return this.teacherStaffInfos;
 	}
 
-	public void setTeacherStaffInfos(Set teacherStaffInfos) {
+	public void setTeacherStaffInfos(Set<TeacherStaffInfo> teacherStaffInfos) {
 		this.teacherStaffInfos = teacherStaffInfos;
 	}
 

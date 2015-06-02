@@ -27,7 +27,7 @@ public class TeachingApproachType implements java.io.Serializable {
 	private String name;
 	private Date lastUpdatedOn;
 	private Integer lastUpdatedBy;
-	private Set classInfos = new HashSet(0);
+	private Set<ClassInfo> classInfos = new HashSet<ClassInfo>(0);
 
 	public TeachingApproachType() {
 	}
@@ -80,11 +80,11 @@ public class TeachingApproachType implements java.io.Serializable {
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "teachingApproachType")
-	public Set getClassInfos() {
+	public Set<ClassInfo> getClassInfos() {
 		return this.classInfos;
 	}
 
-	public void setClassInfos(Set classInfos) {
+	public void setClassInfos(Set<ClassInfo> classInfos) {
 		this.classInfos = classInfos;
 	}
 

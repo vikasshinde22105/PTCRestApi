@@ -43,11 +43,12 @@ public class ClassInfo implements java.io.Serializable {
 	private String specialization;
 	private Integer lastUpdatedBy;
 	private Date lastUpdatedOn;
-	private Set timeTables = new HashSet(0);
-	private Set classSections = new HashSet(0);
-	private Set classSubjectses = new HashSet(0);
-	private Set teacherClasses = new HashSet(0);
-	private Set studentPrevSchoolDetails = new HashSet(0);
+	private Set<TimeTable> timeTables = new HashSet<TimeTable>(0);
+	
+	private Set<ClassSection> classSections = new HashSet<ClassSection>(0);
+	private Set<ClassSubjects> classSubjectses = new HashSet<ClassSubjects>(0);
+	private Set<TeacherClass> teacherClasses = new HashSet<TeacherClass>(0);
+	private Set<StudentPrevSchoolDetail> studentPrevSchoolDetails = new HashSet<StudentPrevSchoolDetail>(0);
 
 	public ClassInfo() {
 	}
@@ -236,47 +237,47 @@ public class ClassInfo implements java.io.Serializable {
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "classInfo")
-	public Set getTimeTables() {
+	public Set<TimeTable> getTimeTables() {
 		return this.timeTables;
 	}
 
-	public void setTimeTables(Set timeTables) {
+	public void setTimeTables(Set<TimeTable> timeTables) {
 		this.timeTables = timeTables;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "classInfo")
-	public Set getClassSections() {
+	public Set<ClassSection> getClassSections() {
 		return this.classSections;
 	}
 
-	public void setClassSections(Set classSections) {
+	public void setClassSections(Set<ClassSection> classSections) {
 		this.classSections = classSections;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "classInfo")
-	public Set getClassSubjectses() {
+	public Set<ClassSubjects> getClassSubjectses() {
 		return this.classSubjectses;
 	}
 
-	public void setClassSubjectses(Set classSubjectses) {
+	public void setClassSubjectses(Set<ClassSubjects> classSubjectses) {
 		this.classSubjectses = classSubjectses;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "classInfo")
-	public Set getTeacherClasses() {
+	public Set<TeacherClass> getTeacherClasses() {
 		return this.teacherClasses;
 	}
 
-	public void setTeacherClasses(Set teacherClasses) {
+	public void setTeacherClasses(Set<TeacherClass> teacherClasses) {
 		this.teacherClasses = teacherClasses;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "classInfo")
-	public Set getStudentPrevSchoolDetails() {
+	public Set<StudentPrevSchoolDetail> getStudentPrevSchoolDetails() {
 		return this.studentPrevSchoolDetails;
 	}
 
-	public void setStudentPrevSchoolDetails(Set studentPrevSchoolDetails) {
+	public void setStudentPrevSchoolDetails(Set<StudentPrevSchoolDetail> studentPrevSchoolDetails) {
 		this.studentPrevSchoolDetails = studentPrevSchoolDetails;
 	}
 

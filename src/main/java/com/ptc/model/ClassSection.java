@@ -30,9 +30,9 @@ public class ClassSection implements java.io.Serializable {
 	private String name;
 	private Integer lastUpdatedBy;
 	private Date lastUpdatedOn;
-	private Set timeTables = new HashSet(0);
-	private Set teacherSubjects = new HashSet(0);
-	private Set teacherClasses = new HashSet(0);
+	private Set<TimeTable> timeTables = new HashSet<TimeTable>(0);
+	private Set<TeacherSubject> teacherSubjects = new HashSet<TeacherSubject>(0);
+	private Set<TeacherClass> teacherClasses = new HashSet<TeacherClass>(0);
 
 	public ClassSection() {
 	}
@@ -99,29 +99,29 @@ public class ClassSection implements java.io.Serializable {
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "classSection")
-	public Set getTimeTables() {
+	public Set<TimeTable> getTimeTables() {
 		return this.timeTables;
 	}
 
-	public void setTimeTables(Set timeTables) {
+	public void setTimeTables(Set<TimeTable> timeTables) {
 		this.timeTables = timeTables;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "classSection")
-	public Set getTeacherSubjects() {
+	public Set<TeacherSubject> getTeacherSubjects() {
 		return this.teacherSubjects;
 	}
 
-	public void setTeacherSubjects(Set teacherSubjects) {
+	public void setTeacherSubjects(Set<TeacherSubject> teacherSubjects) {
 		this.teacherSubjects = teacherSubjects;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "classSection")
-	public Set getTeacherClasses() {
+	public Set<TeacherClass> getTeacherClasses() {
 		return this.teacherClasses;
 	}
 
-	public void setTeacherClasses(Set teacherClasses) {
+	public void setTeacherClasses(Set<TeacherClass> teacherClasses) {
 		this.teacherClasses = teacherClasses;
 	}
 

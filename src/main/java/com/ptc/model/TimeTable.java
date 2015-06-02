@@ -37,8 +37,8 @@ public class TimeTable implements java.io.Serializable {
 	private Boolean status;
 	private Date lastUpdatedOn;
 	private Integer lastUpdatedBy;
-	private Set teacherHomeworks = new HashSet(0);
-	private Set teacherTimeTables = new HashSet(0);
+	private Set<TeacherHomework> teacherHomeworks = new HashSet<TeacherHomework>(0);
+	private Set<TeacherTimeTable> teacherTimeTables = new HashSet<TeacherTimeTable>(0);
 
 	public TimeTable() {
 	}
@@ -182,20 +182,20 @@ public class TimeTable implements java.io.Serializable {
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "timeTable")
-	public Set getTeacherHomeworks() {
+	public Set<TeacherHomework> getTeacherHomeworks() {
 		return this.teacherHomeworks;
 	}
 
-	public void setTeacherHomeworks(Set teacherHomeworks) {
+	public void setTeacherHomeworks(Set<TeacherHomework> teacherHomeworks) {
 		this.teacherHomeworks = teacherHomeworks;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "timeTable")
-	public Set getTeacherTimeTables() {
+	public Set<TeacherTimeTable> getTeacherTimeTables() {
 		return this.teacherTimeTables;
 	}
 
-	public void setTeacherTimeTables(Set teacherTimeTables) {
+	public void setTeacherTimeTables(Set<TeacherTimeTable> teacherTimeTables) {
 		this.teacherTimeTables = teacherTimeTables;
 	}
 

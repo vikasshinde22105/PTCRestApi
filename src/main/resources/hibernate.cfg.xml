@@ -10,5 +10,36 @@
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.default_schema">school_db</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-    </session-factory>
+   
+   <mapping class="com.ptc.model.School" />
+   <mapping class="com.ptc.model.ClassInfo" />
+   <mapping class="com.ptc.model.TeachingApproachType" />
+   <mapping class="com.ptc.model.ClassSubjects" />
+   <mapping class="com.ptc.model.Subject" />
+   <mapping class="com.ptc.model.SchoolTeacher" />
+   <mapping class="com.ptc.model.TeacherStaffInfo" />
+   <mapping class="com.ptc.model.UserRegistrationInfo" />
+   <mapping class="com.ptc.model.StudentPrevSchoolDetail" />
+   <mapping class="com.ptc.model.StudentPersonalInfo" />
+   <mapping class="com.ptc.model.StudentProfile" />
+   <mapping class="com.ptc.model.TeacherHomework" />
+   <mapping class="com.ptc.model.TimeTable" />
+   <mapping class="com.ptc.model.ClassSection" />
+
+   <mapping class="com.ptc.model.TeacherHomeworkRemarks" />
+   <mapping class="com.ptc.model.StudentPrevSchoolDetail" />
+   <mapping class="com.ptc.model.StudentSchoolInfo" />
+   <mapping class="com.ptc.model.TeacherAttendance" />
+   <mapping class="com.ptc.model.TeacherSubject" />
+   <mapping class="com.ptc.model.TeacherClass" />
+   <mapping class="com.ptc.model.TeacherClassSkill" />
+   <mapping class="com.ptc.model.TeacherEducationInfo" />
+      <mapping class="com.ptc.model.TeacherEducationInfo" />
+   <mapping class="com.ptc.model.TeacherExperience" />
+   <mapping class="com.ptc.model.TeacherTimeTable" />
+         <mapping class="com.ptc.model.ParentInfo" />
+   <mapping class="com.ptc.model.Task" />
+   <mapping class="com.ptc.model.UserRole" />
+      </session-factory>
+    
 </hibernate-configuration>

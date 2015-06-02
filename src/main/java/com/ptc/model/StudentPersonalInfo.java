@@ -29,9 +29,9 @@ public class StudentPersonalInfo implements java.io.Serializable {
 	private UserRegistrationInfo userRegistrationInfo;
 	private Date lastUpdatedOn;
 	private Integer lastUpdatedBy;
-	private Set studentSchoolInfos = new HashSet(0);
-	private Set teacherHomeworkRemarkses = new HashSet(0);
-	private Set studentPrevSchoolDetails = new HashSet(0);
+	private Set<StudentSchoolInfo> studentSchoolInfos = new HashSet<StudentSchoolInfo>(0);
+	private Set<TeacherHomeworkRemarks> teacherHomeworkRemarkses = new HashSet<TeacherHomeworkRemarks>(0);
+	private Set<StudentPrevSchoolDetail> studentPrevSchoolDetails = new HashSet<StudentPrevSchoolDetail>(0);
 
 	public StudentPersonalInfo() {
 	}
@@ -89,29 +89,29 @@ public class StudentPersonalInfo implements java.io.Serializable {
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "studentPersonalInfo")
-	public Set getStudentSchoolInfos() {
+	public Set<StudentSchoolInfo> getStudentSchoolInfos() {
 		return this.studentSchoolInfos;
 	}
 
-	public void setStudentSchoolInfos(Set studentSchoolInfos) {
+	public void setStudentSchoolInfos(Set<StudentSchoolInfo> studentSchoolInfos) {
 		this.studentSchoolInfos = studentSchoolInfos;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "studentPersonalInfo")
-	public Set getTeacherHomeworkRemarkses() {
+	public Set<TeacherHomeworkRemarks> getTeacherHomeworkRemarkses() {
 		return this.teacherHomeworkRemarkses;
 	}
 
-	public void setTeacherHomeworkRemarkses(Set teacherHomeworkRemarkses) {
+	public void setTeacherHomeworkRemarkses(Set<TeacherHomeworkRemarks> teacherHomeworkRemarkses) {
 		this.teacherHomeworkRemarkses = teacherHomeworkRemarkses;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "studentPersonalInfo")
-	public Set getStudentPrevSchoolDetails() {
+	public Set<StudentPrevSchoolDetail> getStudentPrevSchoolDetails() {
 		return this.studentPrevSchoolDetails;
 	}
 
-	public void setStudentPrevSchoolDetails(Set studentPrevSchoolDetails) {
+	public void setStudentPrevSchoolDetails(Set<StudentPrevSchoolDetail> studentPrevSchoolDetails) {
 		this.studentPrevSchoolDetails = studentPrevSchoolDetails;
 	}
 

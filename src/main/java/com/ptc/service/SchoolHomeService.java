@@ -14,11 +14,16 @@ public class SchoolHomeService {
 	@Autowired
 	SchoolHomeDao schoolhome;
 	
-	 public List<School> fetchAll(boolean includeAll) {
-	        System.out.println("ParentDeo: fetchAll");
-	        List<School> fetchedSchool = schoolhome.fetchAll(includeAll);
+	 public List<School> fetchAll() {
+	        System.out.println("SchoolDao: fetchAll");
+	        List<School> fetchedSchool = schoolhome.fetchAll();
 	        return fetchedSchool;
 	    }
+
+	public School fetchById(int id) {
+		School fetchedSchool = schoolhome.fetchById(id);
+        return fetchedSchool;
+	}
 	   
 
 }

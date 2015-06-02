@@ -31,7 +31,7 @@ public class TeacherHomework implements java.io.Serializable {
 	private Boolean isDeleted;
 	private Date lastUpdatedOn;
 	private Integer lastUpdatedBy;
-	private Set teacherHomeworkRemarkses = new HashSet(0);
+	private Set<TeacherHomeworkRemarks> teacherHomeworkRemarkses = new HashSet<TeacherHomeworkRemarks>(0);
 
 	public TeacherHomework() {
 	}
@@ -106,11 +106,11 @@ public class TeacherHomework implements java.io.Serializable {
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "teacherHomework")
-	public Set getTeacherHomeworkRemarkses() {
+	public Set<TeacherHomeworkRemarks> getTeacherHomeworkRemarkses() {
 		return this.teacherHomeworkRemarkses;
 	}
 
-	public void setTeacherHomeworkRemarkses(Set teacherHomeworkRemarkses) {
+	public void setTeacherHomeworkRemarkses(Set<TeacherHomeworkRemarks> teacherHomeworkRemarkses) {
 		this.teacherHomeworkRemarkses = teacherHomeworkRemarkses;
 	}
 

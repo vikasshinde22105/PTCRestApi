@@ -1,6 +1,5 @@
 package com.ptc.dao;
 
-import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -13,19 +12,30 @@ import com.ptc.util.HibernateUtil;
 @Transactional
 @Repository
 public class SchoolHomeDao {
-    public List<School> fetchAll(boolean includeAll) {
+    public List<School> fetchAll() {
         System.out.println("SchoolDao: fetchAll");
-        System.out.println("SchoolDao: START - fetching all parents from the database");
+        System.out.println("SchoolDao: START - fetching all schools from the database");
         Session session = HibernateUtil.getSessionFactory().openSession();
 
         session.beginTransaction();
         List<School> fetchedSchool = (List<School>) session.createCriteria(School.class).
                 list();
 
-        System.out.println("DEBUG: includeAll [" + includeAll + "]");
+        System.out.println("DEBUG: includeAll ");
        
 
         return fetchedSchool;
     }
+
+	public School fetchById(int schoolID) {
+        System.out.println("UserDAO: fetch");
+        System.out.println("UserDAO: START - fetching user from the database by user ID");
+        Session session = HibernateUtil.getSessionFactory().openSession();
+
+        session.beginTransaction();
+        School fetchedSchool = (School) session.get(School.class, schoolID);
+        System.out.println("UserDAO: END - fetching user from the database by user ID");
+        return fetchedSchool;
+	}
 }
 
