@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2 Jun, 2015 3:00:10 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.ptc.model.TeacherStaffInfo" table="teacher_staff_info" catalog="school_db">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="userRegistrationInfo" class="com.ptc.model.UserRegistrationInfo" fetch="select">
+            <column name="user_id" />
+        </many-to-one>
+        <property name="isStaff" type="java.lang.Boolean">
+            <column name="is_staff">
+                <comment>1- teacher 0 - staff</comment>
+            </column>
+        </property>
+        <property name="dateOfJoining" type="date">
+            <column name="date_of_joining" length="10" />
+        </property>
+        <property name="experience" type="java.lang.Byte">
+            <column name="experience">
+                <comment>15 months etc</comment>
+            </column>
+        </property>
+        <property name="educationQualifiction" type="string">
+            <column name="education_qualifiction" length="400" />
+        </property>
+        <property name="awardDesc" type="string">
+            <column name="award_desc" length="16777215" />
+        </property>
+        <property name="extraCurricularActivity" type="string">
+            <column name="extra_curricular_activity" length="200" />
+        </property>
+        <property name="labName" type="string">
+            <column name="lab_name" length="200" />
+        </property>
+        <property name="deptName" type="string">
+            <column name="dept_name" length="200" />
+        </property>
+        <property name="drivingLicenseNo" type="string">
+            <column name="driving_license_no" length="20" />
+        </property>
+        <property name="drivingLicenseValidTill" type="date">
+            <column name="driving_license_valid_till" length="10" />
+        </property>
+        <property name="lastUpdatedOn" type="date">
+            <column name="last_updated_on" length="10" />
+        </property>
+        <property name="lastUpdatedBy" type="int">
+            <column name="last_updated_by" not-null="true" />
+        </property>
+        <set name="teacherExperiences" table="teacher_experience" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="teacher_id" />
+            </key>
+            <one-to-many class="com.ptc.model.TeacherExperience" />
+        </set>
+        <set name="schoolTeachers" table="school_teacher" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="teacher_id" />
+            </key>
+            <one-to-many class="com.ptc.model.SchoolTeacher" />
+        </set>
+        <set name="teacherClassSkills" table="teacher_class_skill" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="teacher_staff_id" />
+            </key>
+            <one-to-many class="com.ptc.model.TeacherClassSkill" />
+        </set>
+        <set name="teacherEducationInfos" table="teacher_education_info" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="teacher_staff_id" />
+            </key>
+            <one-to-many class="com.ptc.model.TeacherEducationInfo" />
+        </set>
+        <set name="teacherAttendances" table="teacher_attendance" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="teacher_staff_id" />
+            </key>
+            <one-to-many class="com.ptc.model.TeacherAttendance" />
+        </set>
+        <set name="teacherTimeTables" table="teacher_time_table" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="teacher_id" />
+            </key>
+            <one-to-many class="com.ptc.model.TeacherTimeTable" />
+        </set>
+        <set name="teacherSubjects" table="teacher_subject" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="teacher_id" not-null="true" />
+            </key>
+            <one-to-many class="com.ptc.model.TeacherSubject" />
+        </set>
+        <set name="teacherClasses" table="teacher_class" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="teacher_id" />
+            </key>
+            <one-to-many class="com.ptc.model.TeacherClass" />
+        </set>
+    </class>
+</hibernate-mapping>

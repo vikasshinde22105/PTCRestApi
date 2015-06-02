@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+  <table-filter match-catalog="school_db" match-name="class_info"/>
+  <table-filter match-catalog="school_db" match-name="class_section"/>
+  <table-filter match-catalog="school_db" match-name="class_subjects"/>
+  <table-filter match-catalog="school_db" match-name="parent_info"/>
+  <table-filter match-catalog="school_db" match-name="school"/>
+  <table-filter match-catalog="school_db" match-name="school_teacher"/>
+  <table-filter match-catalog="school_db" match-name="school_type"/>
+  <table-filter match-catalog="school_db" match-name="student_personal_info"/>
+  <table-filter match-catalog="school_db" match-name="student_prev_school_detail"/>
+  <table-filter match-catalog="school_db" match-name="student_profile"/>
+  <table-filter match-catalog="school_db" match-name="student_school_info"/>
+  <table-filter match-catalog="school_db" match-name="subject"/>
+  <table-filter match-catalog="school_db" match-name="task"/>
+  <table-filter match-catalog="school_db" match-name="teacher_attendance"/>
+  <table-filter match-catalog="school_db" match-name="teacher_class"/>
+  <table-filter match-catalog="school_db" match-name="teacher_class_skill"/>
+  <table-filter match-catalog="school_db" match-name="teacher_education_info"/>
+  <table-filter match-catalog="school_db" match-name="teacher_experience"/>
+  <table-filter match-catalog="school_db" match-name="teacher_homework"/>
+  <table-filter match-catalog="school_db" match-name="teacher_homework_remarks"/>
+  <table-filter match-catalog="school_db" match-name="teacher_staff_info"/>
+  <table-filter match-catalog="school_db" match-name="teacher_subject"/>
+  <table-filter match-catalog="school_db" match-name="teacher_subject_skill"/>
+  <table-filter match-catalog="school_db" match-name="teacher_time_table"/>
+  <table-filter match-catalog="school_db" match-name="teaching_approach_type"/>
+  <table-filter match-catalog="school_db" match-name="time_table"/>
+  <table-filter match-catalog="school_db" match-name="user_registration_info"/>
+  <table-filter match-catalog="school_db" match-name="user_role"/>
+</hibernate-reverse-engineering>

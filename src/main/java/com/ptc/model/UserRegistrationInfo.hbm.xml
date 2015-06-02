@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2 Jun, 2015 3:00:10 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.ptc.model.UserRegistrationInfo" table="user_registration_info" catalog="school_db">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="firstName" type="string">
+            <column name="first_name" length="200" />
+        </property>
+        <property name="lastName" type="string">
+            <column name="last_name" length="200" />
+        </property>
+        <property name="mobile" type="string">
+            <column name="mobile" length="20" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="20" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="200" />
+        </property>
+        <property name="status" type="java.lang.Byte">
+            <column name="status">
+                <comment>1- active 0 in active</comment>
+            </column>
+        </property>
+        <property name="memberOtp" type="string">
+            <column name="member_otp" length="6" />
+        </property>
+        <property name="gender" type="java.lang.Boolean">
+            <column name="gender">
+                <comment>1 - Male 0 -Female</comment>
+            </column>
+        </property>
+        <property name="dateOfBirth" type="date">
+            <column name="date_of_birth" length="10" />
+        </property>
+        <property name="image" type="string">
+            <column name="image" length="200">
+                <comment>cdn url of image</comment>
+            </column>
+        </property>
+        <property name="bloodGroup" type="string">
+            <column name="blood_group" length="10" />
+        </property>
+        <property name="tempAddr" type="string">
+            <column name="temp_addr" length="200" />
+        </property>
+        <property name="permAddr" type="string">
+            <column name="perm_addr" length="200" />
+        </property>
+        <property name="landlineNo" type="string">
+            <column name="landline_no" length="20" />
+        </property>
+        <property name="lastLoggedOn" type="date">
+            <column name="last_logged_on" length="10" />
+        </property>
+        <property name="lastUpdatedBy" type="java.lang.Integer">
+            <column name="last_updated_by" />
+        </property>
+        <property name="lastUpdatedOn" type="date">
+            <column name="last_updated_on" length="10" />
+        </property>
+        <set name="tasksForAssignedBy" table="task" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="assigned_by">
+                    <comment>user id foreign key</comment>
+                </column>
+            </key>
+            <one-to-many class="com.ptc.model.Task" />
+        </set>
+        <set name="tasksForToUserId" table="task" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="to_user_id" />
+            </key>
+            <one-to-many class="com.ptc.model.Task" />
+        </set>
+        <set name="parentInfos" table="parent_info" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" />
+            </key>
+            <one-to-many class="com.ptc.model.ParentInfo" />
+        </set>
+        <set name="userRoles" table="user_role" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" />
+            </key>
+            <one-to-many class="com.ptc.model.UserRole" />
+        </set>
+        <set name="studentPersonalInfos" table="student_personal_info" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" />
+            </key>
+            <one-to-many class="com.ptc.model.StudentPersonalInfo" />
+        </set>
+        <set name="teacherStaffInfos" table="teacher_staff_info" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" />
+            </key>
+            <one-to-many class="com.ptc.model.TeacherStaffInfo" />
+        </set>
+    </class>
+</hibernate-mapping>

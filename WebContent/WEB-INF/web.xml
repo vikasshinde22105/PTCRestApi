@@ -11,7 +11,7 @@
   </welcome-file-list>
       <display-name>PTC Rest API</display-name>
     <servlet>
-        <servlet-name>PTC</servlet-name>
+        <servlet-name>ptc</servlet-name>
         <servlet-class>
             org.springframework.web.servlet.DispatcherServlet
         </servlet-class>
@@ -24,7 +24,7 @@
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>PTC</servlet-name>
+        <servlet-name>ptc</servlet-name>
         <url-pattern>/</url-pattern>
         
     </servlet-mapping>

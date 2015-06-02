@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2 Jun, 2015 3:00:10 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.ptc.model.TeacherClass" table="teacher_class" catalog="school_db">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="classInfo" class="com.ptc.model.ClassInfo" fetch="select">
+            <column name="class_id" />
+        </many-to-one>
+        <many-to-one name="classSection" class="com.ptc.model.ClassSection" fetch="select">
+            <column name="section_id" />
+        </many-to-one>
+        <many-to-one name="teacherStaffInfo" class="com.ptc.model.TeacherStaffInfo" fetch="select">
+            <column name="teacher_id" />
+        </many-to-one>
+        <property name="status" type="java.lang.Byte">
+            <column name="status">
+                <comment>1 active 0 inactive</comment>
+            </column>
+        </property>
+        <property name="lastUpdatedOn" type="date">
+            <column name="last_updated_on" length="10" />
+        </property>
+        <property name="lastUpdatedBy" type="java.lang.Integer">
+            <column name="last_updated_by" />
+        </property>
+    </class>
+</hibernate-mapping>

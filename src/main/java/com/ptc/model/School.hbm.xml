@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2 Jun, 2015 3:00:10 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.ptc.model.School" table="school" catalog="school_db">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="string">
+            <column name="name" length="200" />
+        </property>
+        <property name="plotNo" type="string">
+            <column name="plot_no" length="100" />
+        </property>
+        <property name="localityId" type="java.lang.Integer">
+            <column name="locality_id" />
+        </property>
+        <property name="street" type="string">
+            <column name="street" length="500" />
+        </property>
+        <property name="landmark" type="string">
+            <column name="landmark" length="150" />
+        </property>
+        <property name="pincode" type="string">
+            <column name="pincode" length="100" />
+        </property>
+        <property name="longitude" type="java.lang.Float">
+            <column name="longitude" precision="9" scale="3" />
+        </property>
+        <property name="latitude" type="java.lang.Float">
+            <column name="latitude" precision="9" scale="3" />
+        </property>
+        <property name="alias" type="string">
+            <column name="alias" length="200" />
+        </property>
+        <property name="tagLine" type="string">
+            <column name="tag_line" length="200" />
+        </property>
+        <property name="aboutSchool" type="string">
+            <column name="about_school" length="65535" />
+        </property>
+        <property name="logo" type="string">
+            <column name="logo" length="200" />
+        </property>
+        <property name="establishmentType" type="java.lang.Byte">
+            <column name="establishment_type">
+                <comment>1 - old 0 - new</comment>
+            </column>
+        </property>
+        <property name="status" type="java.lang.Boolean">
+            <column name="status">
+                <comment>1 - active 2 - inactive</comment>
+            </column>
+        </property>
+        <property name="liveDate" type="date">
+            <column name="live_date" length="10" />
+        </property>
+        <property name="createdBy" type="date">
+            <column name="created_by" length="10" />
+        </property>
+        <property name="lastUpdatedOn" type="date">
+            <column name="last_updated_on" length="10" />
+        </property>
+        <property name="lastUpdatedBy" type="java.lang.Integer">
+            <column name="last_updated_by" />
+        </property>
+        <set name="studentSchoolInfos" table="student_school_info" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="school_id" />
+            </key>
+            <one-to-many class="com.ptc.model.StudentSchoolInfo" />
+        </set>
+        <set name="timeTables" table="time_table" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="school_id" />
+            </key>
+            <one-to-many class="com.ptc.model.TimeTable" />
+        </set>
+        <set name="studentProfiles" table="student_profile" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="school_id">
+                    <comment>foreign key from school table</comment>
+                </column>
+            </key>
+            <one-to-many class="com.ptc.model.StudentProfile" />
+        </set>
+        <set name="schoolTeachers" table="school_teacher" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="school_id" />
+            </key>
+            <one-to-many class="com.ptc.model.SchoolTeacher" />
+        </set>
+        <set name="studentPrevSchoolDetails" table="student_prev_school_detail" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="prev_school_id" />
+            </key>
+            <one-to-many class="com.ptc.model.StudentPrevSchoolDetail" />
+        </set>
+        <set name="classInfos" table="class_info" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="school_id" />
+            </key>
+            <one-to-many class="com.ptc.model.ClassInfo" />
+        </set>
+        <set name="classSubjectses" table="class_subjects" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="school_id" />
+            </key>
+            <one-to-many class="com.ptc.model.ClassSubjects" />
+        </set>
+    </class>
+</hibernate-mapping>

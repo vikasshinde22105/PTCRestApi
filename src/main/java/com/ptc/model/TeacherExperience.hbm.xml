@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2 Jun, 2015 3:00:10 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.ptc.model.TeacherExperience" table="teacher_experience" catalog="school_db">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="teacherStaffInfo" class="com.ptc.model.TeacherStaffInfo" fetch="select">
+            <column name="teacher_id" />
+        </many-to-one>
+        <property name="empType" type="java.lang.Byte">
+            <column name="emp_type">
+                <comment>1 - permanent 0 temporary</comment>
+            </column>
+        </property>
+        <property name="organisationName" type="string">
+            <column name="organisation_name" length="250" />
+        </property>
+        <property name="localityId" type="java.lang.Integer">
+            <column name="locality_id" />
+        </property>
+        <property name="location" type="string">
+            <column name="location" length="250" />
+        </property>
+        <property name="designation" type="string">
+            <column name="designation" length="250" />
+        </property>
+        <property name="workedFromDate" type="date">
+            <column name="worked_from_date" length="10" />
+        </property>
+        <property name="workedToDate" type="date">
+            <column name="worked_to_date" length="10" />
+        </property>
+        <property name="experience" type="string">
+            <column name="experience" length="16777215" />
+        </property>
+        <property name="isSubjectDesc" type="java.lang.Byte">
+            <column name="is_subject_desc">
+                <comment>1 -Yes 0 - No</comment>
+            </column>
+        </property>
+        <property name="isCurrentJob" type="java.lang.Byte">
+            <column name="is_current_job">
+                <comment>1 - current 0 - not current</comment>
+            </column>
+        </property>
+        <property name="interestAreaDesc" type="string">
+            <column name="interest_area_desc" length="16777215" />
+        </property>
+        <property name="lastUpdatedOn" type="date">
+            <column name="last_updated_on" length="10" />
+        </property>
+        <property name="lastUpdatedBy" type="java.lang.Integer">
+            <column name="last_updated_by" />
+        </property>
+    </class>
+</hibernate-mapping>

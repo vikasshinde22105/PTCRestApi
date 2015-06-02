@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2 Jun, 2015 3:00:10 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.ptc.model.Task" table="task" catalog="school_db">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="userRegistrationInfoByAssignedBy" class="com.ptc.model.UserRegistrationInfo" fetch="select">
+            <column name="assigned_by">
+                <comment>user id foreign key</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="userRegistrationInfoByToUserId" class="com.ptc.model.UserRegistrationInfo" fetch="select">
+            <column name="to_user_id" />
+        </many-to-one>
+        <property name="brief" type="string">
+            <column name="brief" length="20" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" />
+        </property>
+        <property name="assignedOn" type="date">
+            <column name="assigned_on" length="10" />
+        </property>
+        <property name="taskStartDate" type="date">
+            <column name="task_start_date" length="10" />
+        </property>
+        <property name="taskEndDate" type="date">
+            <column name="task_end_date" length="10" />
+        </property>
+        <property name="isAccepted" type="java.lang.Byte">
+            <column name="is_accepted" />
+        </property>
+        <property name="isComplete" type="java.lang.Byte">
+            <column name="is_complete" />
+        </property>
+        <property name="lastUpdatedOn" type="date">
+            <column name="last_updated_on" length="10" />
+        </property>
+        <property name="lastUpdatedBy" type="java.lang.Integer">
+            <column name="last_updated_by" />
+        </property>
+        <property name="notAcceptedReason" type="string">
+            <column name="not_accepted_reason" />
+        </property>
+    </class>
+</hibernate-mapping>
