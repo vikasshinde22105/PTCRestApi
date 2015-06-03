@@ -18,8 +18,7 @@ public class SchoolHomeDao {
         Session session = HibernateUtil.getSessionFactory().openSession();
 
         session.beginTransaction();
-        List<School> fetchedSchool = (List<School>) session.createCriteria(School.class).
-                list();
+        List<School> fetchedSchool = (List<School>) session.createCriteria(School.class).list();
 
         System.out.println("DEBUG: includeAll ");
        

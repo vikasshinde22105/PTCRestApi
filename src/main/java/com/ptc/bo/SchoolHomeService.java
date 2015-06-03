@@ -1,4 +1,4 @@
-package com.ptc.service;
+package com.ptc.bo;
 
 import java.util.List;
 

@@ -21,6 +21,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 /**
@@ -28,6 +29,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
  */
 @Entity
 @Table(name = "school", catalog = "school_db")
+@JsonIgnoreProperties({ "timeTables","studentPrevSchoolDetails","classSubjectses"})
 public class School implements java.io.Serializable {
 
 	private Integer id;
@@ -75,9 +77,9 @@ public class School implements java.io.Serializable {
 			Float latitude, String alias, String tagLine, String aboutSchool,
 			String logo, Byte establishmentType, Boolean status, Date liveDate,
 			Date createdBy, Date lastUpdatedOn, Integer lastUpdatedBy,
-			Set studentSchoolInfos, Set timeTables, Set studentProfiles,
-			Set schoolTeachers, Set studentPrevSchoolDetails, Set<ClassInfo> classInfos,
-			Set classSubjectses) {
+			Set<StudentSchoolInfo> studentSchoolInfos, Set<TimeTable> timeTables, Set studentProfiles,
+			Set<SchoolTeacher> schoolTeachers, Set<StudentPrevSchoolDetail> studentPrevSchoolDetails, Set<ClassInfo> classInfos,
+			Set<ClassSubjects> classSubjectses) {
 		this.name = name;
 		this.plotNo = plotNo;
 		this.localityId = localityId;
@@ -308,7 +310,8 @@ public class School implements java.io.Serializable {
 		this.studentProfiles = studentProfiles;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "school")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "school")
+    @JsonManagedReference
 	public Set<SchoolTeacher> getSchoolTeachers() {
 		return this.schoolTeachers;
 	}
