@@ -9,7 +9,7 @@ import com.ptc.dao.SchoolHomeDao;
 import com.ptc.model.School;
 
 @Component
-public class SchoolHomeService {
+public class SchoolBasicBo {
 	
 	@Autowired
 	SchoolHomeDao schoolhome;

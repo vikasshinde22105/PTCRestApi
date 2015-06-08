@@ -4,8 +4,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import com.ptc.exception.WebServiceError;
-import com.ptc.exception.WebServiceException;
+import com.ptc.errorhandling.WebServiceError;
+import com.ptc.errorhandling.WebServiceException;
 
 public class ExceptionHandlerController {
 

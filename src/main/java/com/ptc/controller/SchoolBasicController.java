@@ -13,15 +13,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.ptc.bo.SchoolHomeService;
-import com.ptc.exception.*;
+import com.ptc.bo.SchoolBasicBo;
+import com.ptc.errorhandling.*;
 import com.ptc.model.School;
 
 @Controller
 @RequestMapping("school")
-public class SchoolHome extends ExceptionHandlerController {
+public class SchoolBasicController extends ExceptionHandlerController {
 	@Autowired
-	SchoolHomeService schoolhomeservice;
+	SchoolBasicBo schoolhomeservice;
 	
     @RequestMapping(value = "", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody

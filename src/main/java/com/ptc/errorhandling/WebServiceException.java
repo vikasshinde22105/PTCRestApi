@@ -1,4 +1,4 @@
-package com.ptc.exception;
+package com.ptc.errorhandling;
 
 import java.util.List;
 
